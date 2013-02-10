@@ -39,7 +39,7 @@ public class EnsureTest {
      */
     @Test(expected = AssertionFailedException.class)
     public void testExceptionIsNeverThrown() {
-        Ensure.that(new NullPointerException()).isNeverThrown(ERROR_MESSAGE);
+        Ensure.that(new IllegalArgumentException()).isNeverThrown(ERROR_MESSAGE);
     }
 
     /**
