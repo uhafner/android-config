@@ -12,9 +12,40 @@
 
   <name>Android Static Analysis Configuration</name>
 
+  <scm>
+    <connection>scm:git:git://github.com/uhafner/${project.artifactId}.git</connection>
+    <developerConnection>scm:git:git@github.com:uhafner/${project.artifactId}.git</developerConnection>
+    <url>https://github.com/uhafner/${project.artifactId}</url>
+  </scm>
+
+  <licenses>
+    <license>
+      <name>MIT license</name>
+      <comments>All source code is under the MIT license.</comments>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Ullrich Hafner</name>
+      <id>uhafner</id>
+      <email>ullrich.hafner@gmail.com</email>
+    </developer>
+  </developers>
+
+  <url>http://www.cs.hm.edu/die_fakultaet/ansprechpartner/professoren/hafner/index.de.html</url>
+
   <properties>
+    <source.encoding>UTF-8</source.encoding>
+    <project.build.sourceEncoding>${source.encoding}</project.build.sourceEncoding>
     <android.target>4.1.1.4</android.target>
+
+    <resources.maven.plugin>2.6</resources.maven.plugin>
     <android.maven.plugin>3.5.0</android.maven.plugin>
+    <checkstyle.maven.plugin>2.9.1</checkstyle.maven.plugin>
+    <pmd.maven.plugin>2.7.1</pmd.maven.plugin>
+    <findbugs.maven.plugin>2.5.2</findbugs.maven.plugin>
+
     <findbugs.annotations>2.0.0</findbugs.annotations>
     <guava.version>13.0.1</guava.version>
     <commons-lang.version>3.1</commons-lang.version>
@@ -73,6 +104,12 @@
   </dependencyManagement>
 
   <build>
+    <resources>
+      <resource>
+        <directory>etc</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>com.jayway.maven.plugins.android.generation2</groupId>
@@ -82,6 +119,14 @@
 
     <pluginManagement>
       <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.4.3</version>
+          <configuration>
+            <encoding>${source.encoding}</encoding>
+          </configuration>
+        </plugin>
         <plugin>
           <groupId>com.jayway.maven.plugins.android.generation2</groupId>
           <artifactId>android-maven-plugin</artifactId>
@@ -93,6 +138,44 @@
             <undeployBeforeDeploy>true</undeployBeforeDeploy>
           </configuration>
           <extensions>true</extensions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>${checkstyle.maven.plugin}</version>
+          <configuration>
+            <configLocation>etc/checkstyle-configuration.xml</configLocation>
+            <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
+            <propertyExpansion>config_loc=${project.build.outputDirectory}</propertyExpansion>
+            <includeTestSourceDirectory>true</includeTestSourceDirectory>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <version>${pmd.maven.plugin}</version>
+          <configuration>
+            <rulesets>
+              <ruleset>etc/pmd-configuration.xml</ruleset>
+            </rulesets>
+            <targetJdk>1.6</targetJdk>
+            <excludeRoots>
+              <excludeRoot>target/generated-sources/localizer</excludeRoot>
+            </excludeRoots>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <version>${findbugs.maven.plugin}</version>
+          <configuration>
+            <xmlOutput>true</xmlOutput>
+            <findbugsXmlOutput>true</findbugsXmlOutput>
+            <threshold>Low</threshold>
+            <effort>Max</effort>
+            <relaxed>false</relaxed>
+            <fork>false</fork>
+            <excludeFilterFile>etc/findbugs-exclusion-filter.xml</excludeFilterFile>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
