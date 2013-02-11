@@ -39,6 +39,8 @@
     <source.encoding>UTF-8</source.encoding>
     <project.build.sourceEncoding>${source.encoding}</project.build.sourceEncoding>
     <android.target>4.1.1.4</android.target>
+    <android.platform>16</android.platform>
+    <java.version>1.6</java.version>
 
     <!-- Project Dependencies Configuration -->
     <findbugs.annotations>2.0.0</findbugs.annotations>
@@ -48,6 +50,8 @@
     <mockito.version>1.9.5</mockito.version>
 
     <!-- Maven Plug-ins Configuration -->
+    <compiler.maven.plugin>3.0</compiler.maven.plugin>
+    <jdt.plexus.compiler.version>2.1</jdt.plexus.compiler.version>
     <resources.maven.plugin>2.6</resources.maven.plugin>
     <cobertura.maven.plugin>2.5.2</cobertura.maven.plugin>
     <android.maven.plugin>3.5.0</android.maven.plugin>
@@ -118,6 +122,25 @@
         <groupId>com.jayway.maven.plugins.android.generation2</groupId>
         <artifactId>android-maven-plugin</artifactId>
       </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${compiler.maven.plugin}</version>
+        <configuration>
+          <compilerId>eclipse</compilerId>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <compilerArguments>
+            <properties>.settings/org.eclipse.jdt.core.prefs</properties>
+          </compilerArguments>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-compiler-eclipse</artifactId>
+            <version>${jdt.plexus.compiler.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
     </plugins>
 
     <pluginManagement>
@@ -125,7 +148,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>2.4.3</version>
+          <version>${resources.maven.plugin}</version>
           <configuration>
             <encoding>${source.encoding}</encoding>
           </configuration>
@@ -136,7 +159,7 @@
           <version>${android.maven.plugin}</version>
           <configuration>
             <sdk>
-              <platform>16</platform>
+              <platform>${android.platform}</platform>
             </sdk>
             <undeployBeforeDeploy>true</undeployBeforeDeploy>
           </configuration>
@@ -169,7 +192,7 @@
             <rulesets>
               <ruleset>etc/pmd-configuration.xml</ruleset>
             </rulesets>
-            <targetJdk>1.6</targetJdk>
+            <targetJdk>${java.version}</targetJdk>
             <excludeRoots>
               <excludeRoot>target/generated-sources/r</excludeRoot>
             </excludeRoots>
