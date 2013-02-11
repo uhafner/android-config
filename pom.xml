@@ -160,7 +160,7 @@
             </rulesets>
             <targetJdk>1.6</targetJdk>
             <excludeRoots>
-              <excludeRoot>target/generated-sources/</excludeRoot>
+              <excludeRoot>target/generated-sources/r</excludeRoot>
             </excludeRoots>
           </configuration>
         </plugin>
@@ -169,7 +169,6 @@
           <artifactId>findbugs-maven-plugin</artifactId>
           <version>${findbugs.maven.plugin}</version>
           <configuration>
-            <debug>true</debug>
             <xmlOutput>true</xmlOutput>
             <xmlOutput>true</xmlOutput>
             <findbugsXmlOutput>true</findbugsXmlOutput>
