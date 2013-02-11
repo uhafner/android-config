@@ -131,6 +131,7 @@
           <target>${java.version}</target>
           <compilerArguments>
             <properties>.settings/org.eclipse.jdt.core.prefs</properties>
+            <enableJavadoc/>
           </compilerArguments>
         </configuration>
         <dependencies>
