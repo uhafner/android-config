@@ -10,6 +10,8 @@ import org.junit.Test;
 
 /**
  * Tests the class {@link PropertyChangeAware}.
+ *
+ * @author Ullrich Hafner
  */
 @SuppressWarnings("nls")
 public class PropertyChangeAwareTest {

@@ -8,6 +8,8 @@ import com.google.common.collect.Lists;
 
 /**
  * Tests the class {@link Ensure}.
+ *
+ * @author Ullrich Hafner
  */
 @SuppressWarnings("nls")
 public class EnsureTest {

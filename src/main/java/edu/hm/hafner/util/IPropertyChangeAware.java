@@ -7,6 +7,8 @@ import java.beans.PropertyChangeListener;
  * Instances of this interface are capable of sending
  * {@link PropertyChangeEvent} events to attached listeners. Typically, such
  * events are sent if a bound property of this object has been changed.
+ *
+ * @author Ullrich Hafner
  */
 public interface IPropertyChangeAware {
     /**

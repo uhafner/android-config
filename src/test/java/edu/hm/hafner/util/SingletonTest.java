@@ -10,6 +10,8 @@ import com.google.common.collect.Sets;
 
 /**
  * Tests the class {@link Singleton}.
+ *
+ * @author Ullrich Hafner
  */
 @SuppressWarnings("nls")
 public class SingletonTest {

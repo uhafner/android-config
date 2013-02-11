@@ -8,6 +8,7 @@ import java.util.Iterator;
  *
  * @see Collections#singleton(Object)
  * @see Collections#singletonList(Object)
+ * @author Ullrich Hafner
  */
 public final class Singleton {
     /**
@@ -24,15 +25,15 @@ public final class Singleton {
         Ensure.that(collection).isNotNull();
         Iterator<T> iterator = collection.iterator();
         Ensure.that(iterator.hasNext()).isTrue("Collection is empty."); //$NON-NLS-1$
-        
+
         T element = iterator.next();
-        
+
         Ensure.that(iterator.hasNext()).isFalse("Collection contains more than one element."); //$NON-NLS-1$
         Ensure.that(element).isNotNull("Element in collection must be not NULL."); //$NON-NLS-1$
-        
+
         return element;
     }
-    
+
     private Singleton() {
         // prevents instantiation
     }

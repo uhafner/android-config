@@ -10,6 +10,8 @@ import javax.annotation.CheckForNull;
  * Utility class that can be used as base class for beans that support bound
  * properties. You can derive from this class and re-use the listener and
  * notification functionality.
+ *
+ * @author Ullrich Hafner
  */
 public class PropertyChangeAware implements IPropertyChangeAware {
     /** Delegate to do the actual work. */

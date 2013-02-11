@@ -5,10 +5,12 @@ import java.util.logging.Logger;
 
 /**
  * Thrown to indicate that a contract assertion check has been failed.
+ *
+ * @author Ullrich Hafner
  */
 public final class AssertionFailedException extends RuntimeException {
     private static final long serialVersionUID = -7033759120346380864L;
-    
+
     /**
      * Constructs an {@link AssertionFailedException} with the specified
      * detail message.
@@ -18,10 +20,10 @@ public final class AssertionFailedException extends RuntimeException {
      */
     AssertionFailedException(final String message) {
         super(message);
-        
+
         log(this);
     }
-    
+
     /**
      * Constructs an {@link AssertionFailedException} with the specified
      * detail message and cause.
@@ -35,13 +37,13 @@ public final class AssertionFailedException extends RuntimeException {
      */
     AssertionFailedException(final String message, final Throwable cause) {
         super(message, cause);
-        
+
         log(cause);
     }
-    
+
     private static void log(final Throwable exception) {
         LOGGER.log(Level.WARNING, "Assertion failed.", exception); //$NON-NLS-1$
     }
-    
+
     private static final Logger LOGGER = Logger.getLogger(AssertionFailedException.class.getName());
 }
