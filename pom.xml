@@ -160,14 +160,17 @@
             </rulesets>
             <targetJdk>1.6</targetJdk>
             <excludeRoots>
-              <excludeRoot>target/generated-sources/localizer</excludeRoot>
+              <excludeRoot>target/generated-sources/</excludeRoot>
             </excludeRoots>
           </configuration>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
+          <artifactId>findbugs-maven-plugin</artifactId>
           <version>${findbugs.maven.plugin}</version>
           <configuration>
+            <debug>true</debug>
+            <xmlOutput>true</xmlOutput>
             <xmlOutput>true</xmlOutput>
             <findbugsXmlOutput>true</findbugsXmlOutput>
             <threshold>Low</threshold>
