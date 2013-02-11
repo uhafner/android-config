@@ -8,9 +8,10 @@ auch unter Maven 1:1 nutzen lässt.
 
 Folgende wichtigen Punkte sind enthalten:
 * Maven Build: Das Projekt lässt sich automatisiert mit folgendem Maven Kommando bauen:
-      mvn clean install checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs
+  mvn clean install checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs cobertura:cobertura
 * Eclipse Build: Das Projekt lässt sich über das m2e Eclipse Plug-in importieren und 
-  analysiert die Code mit Checkstyle, PMD und FindBugs
+  analysiert die Code mit Checkstyle, PMD und FindBugs. Die Code Coverage der Unittests
+  lässt sich mit dem EclEmma Plug-in auswerten. 
 * In den Eclipse Einstellungen (.settings Verzeichnis) wurde eine sinnvolle Konfiguration
   für Compiler Warnungen, Code Formatter und Cleanup Wizards vorgegeben 
 
@@ -29,4 +30,7 @@ Folgenden Eclipse Plug-ins werden mindestens benötigt:
 - m2e
 - checkstyle
 - findbugs
-- PMD
+- pmd
+- eclemma
+
+Eine sinnvolle Sammlung von Plug-ins ist in der Datei eclipse-plugins.p2f enthalten.
