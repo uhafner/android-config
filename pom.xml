@@ -10,7 +10,7 @@
 
   <packaging>apk</packaging>
 
-  <name>Android Static Analysis Configuration</name>
+  <name>Example Android Eclipse project that integrates maven and several static analysis tools</name>
 
   <scm>
     <connection>scm:git:git://github.com/uhafner/${project.artifactId}.git</connection>
