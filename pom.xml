@@ -54,7 +54,7 @@
     <jdt.plexus.compiler.version>2.2</jdt.plexus.compiler.version>
     <resources.maven.plugin>2.6</resources.maven.plugin>
     <cobertura.maven.plugin>2.5.2</cobertura.maven.plugin>
-    <android.maven.plugin>3.5.0</android.maven.plugin>
+    <android.maven.plugin>3.8.2</android.maven.plugin>
     <checkstyle.maven.plugin>2.9.1</checkstyle.maven.plugin>
     <pmd.maven.plugin>2.7.1</pmd.maven.plugin>
     <findbugs.maven.plugin>2.5.2</findbugs.maven.plugin>
